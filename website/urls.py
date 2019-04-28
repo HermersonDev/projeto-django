@@ -20,7 +20,7 @@ urlpatterns = [
 	# Atualizar funcionário
 	# Buscar pelo {id}
 	path(
-		'funcionario/<id>',
+		'funcionario/<pk>',
 		FuncionarioUpdateView.as_view(),
 		name = 'atualiza_funcionario'
 	),

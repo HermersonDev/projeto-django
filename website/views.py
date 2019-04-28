@@ -33,8 +33,11 @@ class FuncionarioUpdateView(UpdateView):
 	template_name = 'website/atualiza.html'
 	# Definição do modelo
 	model = Funcionario
+
 	# Definir os campos para atualizar
 	fields = '__all__'
+
+	success_url = reverse_lazy('website:lista_funcionarios')
 
 	def get_object(self, queryset = None):
 
@@ -42,20 +45,20 @@ class FuncionarioUpdateView(UpdateView):
 
 		# Os campos {pk} e {slug} estão presentes em self.kwargs
 
-		id = self.kwargs.get(self.pk_url_kwarg)
+		pk = self.kwargs.get(self.pk_url_kwarg)
 
-		slug = self;kwargs.get(self.slug_url_kwarg)
+		slug = self.kwargs.get(self.slug_url_kwarg)
 
-		if id is not None :
+		if pk is not None :
 			# Busca o funcionário apartir do id
-			funcionario = Funcionario.objects.filter(id = id).first()
+			funcionario = Funcionario.objetos.filter(id = pk).first()
 
 		elif slug is not None :
 			# Pega o campo slub do Model
 			campo_slug = self.get_slug_field()
 
 			# Busca o funcionario apartir do slug
-			funcionario = Funcionario.objects.filter(**{campo_slug : slug}).first()
+			funcionario = Funcionario.objetos.filter(**{campo_slug : slug}).first()
 
 		return funcionario
 

@@ -5,14 +5,9 @@ from .models import Funcionario
 
 class InsereFuncionarioForm(forms.ModelForm):
 
-	#formatação correta do campo remuneração
-	remuneracao = forms.CharField(
-		label = 'Remuneração',
-		required = True,
-	)
-
 	#Campos adicionais
 
+	"""
 	chefe = forms.BooleanField(label = 'Chefe?', required = True)
 
 	biografia = forms.CharField(
@@ -20,6 +15,7 @@ class InsereFuncionarioForm(forms.ModelForm):
 		required = False,
 		widget = forms.Textarea
 	)
+	"""
 
 
 	#Definição dos campos que serão mostrados no formulário
@@ -33,11 +29,13 @@ class InsereFuncionarioForm(forms.ModelForm):
 			'nome',
 			'sobrenome',
 			'cpf',
+			'tempo_de_servico',
+			'remuneracao',
 
 		]
 		#Campos que não estarão no formulário
 		exclude = [
-			'tempo_de_servico'
+			
 		]
 
 

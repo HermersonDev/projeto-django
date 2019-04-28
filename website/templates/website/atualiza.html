@@ -1,1 +1,76 @@
-ATUALIZA
+<!-- Extende do template base --> 
+{% extends "website/_layout/template-base.html" %}
+
+<!-- Widget de Formulário -->
+{% load widget_tweaks %}
+
+<!-- Bloco que define o title da página -->
+{% block title %}
+	Editar Funcionário
+{% endblock %}
+
+<!-- Conteudo -->
+{% block conteudo %}
+	<div class="uk-container">
+
+		<form method="post">
+
+			{% csrf_token %}
+
+			<div class="uk-margin">
+				
+				<label class="uk-form-label" for="{{ form.nome.id_for_label }}">
+					Nome:
+				</label>
+			
+				{% render_field form.nome class+="uk-input" %}
+				
+			</div>
+
+			<div class="uk-margin">
+				
+				<label class="uk-form-label" for="{{ form.sobrenome.id_for_label }}">
+					Sobrenome:
+				</label>
+			
+				{% render_field form.sobrenome class+="uk-input" %}
+
+			</div>
+
+			<div class="uk-margin">
+				
+				<label class="uk-form-label" for="{{ form.cpf.id_for_label }}">
+					CPF:
+				</label>
+			
+				{% render_field form.cpf class+="uk-input" %}
+
+			</div>
+
+			<div class="uk-margin">
+				
+				<label class="uk-form-label" for="{{ form.tempo_de_servico.id_for_label }}">
+					Tempo de Serviço:
+				</label>
+			
+				{% render_field form.tempo_de_servico class+="uk-input" %}
+
+			</div>
+
+			<div class="uk-margin">
+
+				<label class="uk-form-label" for="{{ form.remuneracao.id_for_label }}">
+					Remuneração:
+				</label>
+			
+				{% render_field form.remuneracao class+="uk-input" %}
+
+			</div>
+
+			<div class="uk-margin">
+				<button class="uk-button uk-button-primary" type="submit">Salvar Dados</button>
+			</div>
+		</form>
+	</div>
+
+{% endblock %}

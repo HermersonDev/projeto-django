@@ -1,1 +1,39 @@
-INDEX
+<!-- Extende do template base --> 
+{% extends "website/_layout/template-base.html" %}
+
+<!-- Bloco que define o title da página -->
+{% block title %}
+	Página Inicial
+{% endblock %}
+
+<!-- Bloco de conteúdo da página -->
+{% block conteudo %}
+
+<div class="uk-container">
+	
+	<div class="uk-column-1-1 uk-margin">
+		
+		<div class="uk-card uk-card-default uk-card-body uk-width-1-1@m">
+		    <h3 class="uk-card-title">Cadastrar Funcionário</h3>
+		    <p>Cadastre um novo <b>Funcionário</b></p>
+		    <a href="{% url 'website:cadastra_funcionario' %}">
+		    	Novo Funcionário
+		    </a>
+		</div>
+
+	</div>
+
+	<div class="uk-column-1-1">
+
+		<div class="uk-card uk-card-default uk-card-body uk-width-1-1@m">
+		    <h3 class="uk-card-title">Lista de Funcionários</h3>
+		    <p>Aqui você ver todos os <b>Funcionários</b> já cadastrados</p>
+		    <a href="{% url 'website:lista_funcionarios' %}">
+		    	Funcionários
+		    </a>
+		</div>
+	</div>
+	
+</div>
+
+{% endblock %}

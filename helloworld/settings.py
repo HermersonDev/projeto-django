@@ -37,8 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #APP de Formulário
+    'widget_tweaks',
     'helloworld',
     'website',
+  
+
 ]
 
 MIDDLEWARE = [
@@ -49,6 +53,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # Middleware de IP autorizados
+    'helloworld.middlewares.FiltraIpMiddleware',
 ]
 
 ROOT_URLCONF = 'helloworld.urls'

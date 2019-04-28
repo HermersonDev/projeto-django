@@ -1,11 +1,30 @@
-<form method="post">
-	{% csrf_token %}
-	Você tem certeza que quer excluir o funcionário
-	<b> {{ funcionario.nome }}</b>
-	<br>
-	<br>
-	<button type="button">
-		<a href="{% url 'list_funcionarios %}"> Cancelar </a>
-	</button>
-	<button>Excluir</button>
-</form>
+<!-- Extende do template base --> 
+{% extends "website/_layout/template-base.html" %}
+
+
+<!-- Bloco que define o title da página -->
+{% block title %}
+	Remover Funcionário
+{% endblock %}
+
+<!-- Conteudo -->
+{% block conteudo %}
+	<div class="uk-container">
+		
+		<div class="uk-column-1-1 uk-margin">
+			<div class="uk-card uk-card-default uk-card-body uk-width-1-1@m">
+			    <h3 class="uk-card-title">Remover - {{ funcionario.nome }} {{ funcionario.sobrenome }}</h3>
+			    <p>Realmente deseja remover este funcionário da sua lista ?</p>
+				<form method="post">
+						{% csrf_token %}			
+
+						<button type="button" class="uk-button uk-button-secondary uk-button-small">
+							<a href="{% url 'website:lista_funcionarios' %}" style="color:white;"> Cancelar </a>
+						</button>
+						<button class="uk-button uk-button-danger uk-button-small">Excluir</button>
+				</form>
+			</div>
+		</div>
+		
+	</div>
+{% endblock %}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{% block title %}Funcionários {% endblock %}</title>
+
+	<!-- UIkit CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.4/css/uikit.min.css" />
+
+</head>
+<body>
+
+	<nav class="uk-navbar-container uk-margin" uk-navbar>
+	    <div class="uk-navbar-left">
+	        <ul class="uk-navbar-nav">
+	            <li class="uk-active">
+	            	<a href="{% url 'index' %}"> Home </a>
+	            </li>
+	            <li class="uk-parent">
+	            	<a href="{% url 'website:lista_funcionarios' %}"> Funcionários </a>
+	            </li>
+	        </ul>
+	    </div>
+	</nav>
+
+	{% block conteudo %}
+	{% endblock %}
+
+	<!-- UIkit JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.4/js/uikit.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.4/js/uikit-icons.min.js"></script>
+</body>
+</html>
+
