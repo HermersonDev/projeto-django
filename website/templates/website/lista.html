@@ -1,6 +1,9 @@
 <!-- Extende do template base --> 
 {% extends "website/_layout/template-base.html" %}
 
+<!-- Carrega o filtro 'primeira_letra' -->
+{% load primeira_letra %}
+
 <!-- Bloco que define o title da página -->
 {% block title %}
 	Lista de Funcionários
@@ -12,6 +15,7 @@
 		<table class="uk-table uk-table-striped">
 			<thead>
 				<tr>
+					<th>#</th>
 					<th>Nome</th>
 					<th>Sobrenome</th>
 					<th>CPF</th>
@@ -21,9 +25,11 @@
 				</tr>
 			</thead>
 			<tbody>
+				<!-- Verifica se existe tuplas no modelo -->
 				{% if funcionarios|length > 0 %}
 					{% for func in funcionarios %}
 					<tr>
+						<td><strong>{{ func.nome|primeira_letra }}</strong></td>
 						<td>{{ func.nome }}</td>
 						<td>{{ func.sobrenome }}</td>
 						<td>{{ func.cpf }}</td>
@@ -43,6 +49,7 @@
 					{% endfor %}
 				{% else %}
 				<tr>
+					<td>-</td>
 					<td>-</td>
 					<td>-</td>
 					<td>-</td>

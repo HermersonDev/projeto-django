@@ -1,3 +1,6 @@
+<!-- Carregando Tag 'tempo_atual' -->
+{% load tempo_atual %}
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,13 +16,21 @@
 	    <div class="uk-navbar-left">
 	        <ul class="uk-navbar-nav">
 	            <li class="uk-active">
-	            	<a href="{% url 'index' %}"> Home </a>
+	            	<a href="{% url 'index' %}"> Início </a>
 	            </li>
 	            <li class="uk-parent">
 	            	<a href="{% url 'website:lista_funcionarios' %}"> Funcionários </a>
 	            </li>
+	      
 	        </ul>
 	    </div>
+	     <div class="uk-navbar-right">
+	     	<ul class="uk-navbar-nav">
+		    	<li class="uk-parent">
+		        	<a href="#"> Horas: {% tempo_atual %} </a>
+		        </li>
+	     	</ul>
+	     </div>
 	</nav>
 
 	{% block conteudo %}
