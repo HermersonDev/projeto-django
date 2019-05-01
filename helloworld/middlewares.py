@@ -13,6 +13,7 @@ class FiltraIpMiddleware:
 
 		return response
 
+	# Método que é chamado antes da view
 	def process_view(self, request, func, args, kwargs):
 		# Lista de IPs autorizados
 		ips_autorizados = ['127.0.0.1']
