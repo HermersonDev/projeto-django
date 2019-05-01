@@ -129,3 +129,6 @@ STATIC_URL = '/static/'
 
 # Definição do modelo que será utilziado na autenticação
 AUTH_USER_MODEL = 'website.User'
+
+# Visão padrão para Login
+LOGIN_URL = '/form-login/'
