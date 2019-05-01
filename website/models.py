@@ -1,5 +1,10 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
+
+# Usuário generico
+class User(AbstractUser):
+	pass
 
 class Funcionario(models.Model):
 

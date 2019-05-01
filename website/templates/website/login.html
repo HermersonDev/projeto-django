@@ -1,0 +1,38 @@
+<!-- Extende do template base --> 
+{% extends "website/_layout/template-base.html" %}
+
+{% block title %}
+	Login
+{% endblock %}
+
+{% block conteudo %}
+	<div class="uk-flex uk-flex-center">
+		<div class="uk-card uk-card-default uk-card-body">
+			
+			{% if error != None %}
+				<p class="uk-text-danger">{{ error }}</p>	
+			{% endif %}
+			
+			<form action="{% url 'website:login' %}" method="post">
+			    <fieldset class="uk-fieldset">
+
+			        <legend class="uk-legend">Log in</legend>
+			       	
+			       	{% csrf_token %}
+			        
+			        <div class="uk-margin">
+			            <input class="uk-input" type="text" placeholder="Username" name="username">
+			        </div>
+
+			         <div class="uk-margin">
+			            <input class="uk-input" type="password" placeholder="Password" name="password">
+			        </div>
+
+			        <button class="uk-button uk-button-primary"> Enter </button>
+
+			    </fieldset>
+			</form>
+		</div>
+	</div>
+{% endblock %}
+

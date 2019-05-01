@@ -1,7 +1,6 @@
 #URLconf app 'website'
 
 #Importação do arquivo de views
-from . import views
 from django.urls import path
 from .views import *
 
@@ -43,6 +42,27 @@ urlpatterns = [
 		'funcionario/cadastrar/',
 		FuncionarioCreateView.as_view(),
 		name = 'cadastra_funcionario'
+	),
+
+	#Login
+	path(
+		'form-login/',
+		UserAuth.form_login,
+		name = 'form_login'
+	),
+
+	#Login
+	path(
+		'login/',
+		UserAuth.login,
+		name = 'login'
+	),
+
+	#Logout
+	path(
+		'logout/',
+		UserAuth.logout,
+		name = 'logout'
 	),
 ]
 

@@ -1,9 +1,10 @@
 #libs
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import CreateView
 from django.views.generic.list import ListView
 from django.views.generic.edit import UpdateView, DeleteView
 from django.urls import reverse_lazy
+from django.contrib.auth import authenticate, login, logout
 
 #Model
 from .models import Funcionario
@@ -88,6 +89,43 @@ class FuncionarioCreateView(CreateView):
 	form_class = InsereFuncionarioForm
 	# Caso o cadastro for bem sucedido, redireciona para o template 'lista_funcionarios'
 	success_url = reverse_lazy('website:lista_funcionarios')
+
+
+# Autenticação
+class UserAuth():
+
+	def form_login(request):
+		return render(request, 'website/login.html')
+
+	def login(request):
+			
+		# Coleta os dados via POST
+		username = request.POST['username']
+		password = request.POST['password']
+
+		# Autentica o usuário
+		user = authenticate(request, username = username, password = password)
+
+		#Verifica se a variavel 'user' contém um Objeto User
+		if user is not None :
+			# Efetua o login na aplicação e redireciona para index
+			login(request, user)
+			return redirect('index');
+		else:
+			return render(request, 'website/login.html', { 
+				'error' : 'Username ou password incorreto !' 
+			})
+
+	
+
+	def logout(request):
+		# Efetua o logout do Usuário
+		logout(request)
+		return redirect('index')
+
+
+
+
 
 
 

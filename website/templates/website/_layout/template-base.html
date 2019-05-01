@@ -18,17 +18,27 @@
 	            <li class="uk-active">
 	            	<a href="{% url 'index' %}"> Início </a>
 	            </li>
+	            {% if user.is_authenticated %}
 	            <li class="uk-parent">
 	            	<a href="{% url 'website:lista_funcionarios' %}"> Funcionários </a>
 	            </li>
-	      
+	      		{% endif %}
 	        </ul>
 	    </div>
 	     <div class="uk-navbar-right">
 	     	<ul class="uk-navbar-nav">
-		    	<li class="uk-parent">
+		    	<!-- <li class="uk-parent">
 		        	<a href="#"> Horas: {% tempo_atual %} </a>
-		        </li>
+		        </li> -->
+		        {% if user.is_authenticated %}
+			        <li class="uk-parent">
+		            	<a href="{% url 'website:logout' %}"> Logout </a>
+		            </li>
+		        {% else %}
+			        <li class="uk-parent">
+		            	<a href="{% url 'website:form_login' %}"> Login </a>
+		            </li>
+	            {% endif %}
 	     	</ul>
 	     </div>
 	</nav>
